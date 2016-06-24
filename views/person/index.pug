@@ -1,3 +1,19 @@
 extends ../shared/template
 block content
   h1 Person List
+  table.table.table-striped
+  tbody
+    each person in personListView
+    tr
+      td
+        a.btn.btn-success.btn-xs(href='/person/' + person.id + '/delete')
+          i.fa.fa-trash.fa-fw
+      td
+        form(action='/person/' + task.id + '/edit', method='post')
+          button.btn.btn-primary.btn-xs(type='submit')
+            i.fa.fa-pencil-square-o.fa-fw
+      td
+        i(src=person.url)
+      td=person.name
+  a.btn.btn-success.btn-xs(href='/person/new')
+    i.fa.fa-user-plus.fa-fw
