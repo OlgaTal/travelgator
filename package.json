@@ -2,9 +2,9 @@
   "name": "travelgator",
   "version": "1.0.3",
   "scripts": {
-    "dev": "DB=changeme LEVEL=silly PORT=3333 nodemon dst/server.js"
+   "dev": "DB=travelgatordb LEVEL=silly PORT=3333 nodemon dst/server.js"
   },
-  "author": "Unknown",
+  "author": "Team4",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.10.1",
