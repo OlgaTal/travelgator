@@ -1,3 +1,41 @@
 extends ../shared/template
 block content
   h1 Person Edit
+  .row
+    .col-xs-6
+      form(action='/person/add', method='post')
+        .form-group
+          label Name
+          input.form-control(type='text', name= 'name', value=person.name)
+        .form-group
+          label Photo
+          input.form-control(type='text', name= 'photo', value=person.photo)
+        .form-group
+          label Gender
+          select.form-control(name='gender')
+            option(value='F', selected=person.gender === 'F') Female
+            option(value='M', selected=person.gender === 'M') Male
+        .form-group
+          label Age
+          input.form-control(type='number', name= 'age', min=20, max=200, value=person.age)
+        .form-group
+          label Balance $$
+          input.form-control(type='text', name= 'balance', value=person.balance)
+        .form-group
+          button.btn.btn-primary(type='submit') Save
+          a.btn.btn-default.secondaryButton(href='/person') Cancel
+    .col-xs-6
+      h3 Purchased City List
+        a.btn.btn-success.btn-xs(href='/city/new' style='margin-left: 10px;')
+          i.fa.fa-plus.fa-fw.fa-2x
+      table.table.table-striped(style='border: 2px grey solid;')
+        tbody
+          each city in person.cities
+            tr(style='border: 2px grey solid;text-align:left;')
+              td(style='width: 130px;')
+                a.btn.btn-success.btn-xs.listbutton(href='/city/' + city._id + '/delete')
+                  i.fa.fa-trash.fa-fw.fa-2x
+                a.btn.btn-primary.btn-xs.listbutton(href='/city/' + city._id + '/edit')
+                  i.fa.fa-pencil-square-o.fa-fw.fa-2x
+              td
+                a(href='/city/' + city._id + '/view')=city.name

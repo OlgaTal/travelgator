@@ -5,14 +5,14 @@ block content
       i.fa.fa-user-plus.fa-fw.fa-2x
   table.table.table-striped(style='border: 2px grey solid;')
     tbody
-      each person in personListView
+      each person in personList
         tr(style='border: 2px grey solid;text-align:left;')
           td(style='width: 130px;')
             a.btn.btn-success.btn-xs.listbutton(href='/person/' + person._id + '/delete')
               i.fa.fa-trash.fa-fw.fa-2x
-            form(action='/person/' + person._id + '/edit', method='post')
-              button.btn.btn-primary.btn-xs.listbutton(type='submit')
-                i.fa.fa-pencil-square-o.fa-fw.fa-2x
+            a.btn.btn-primary.btn-xs.listbutton(href='/person/' + person._id + '/edit')
+              i.fa.fa-pencil-square-o.fa-fw.fa-2x
+
           td.smallimage
             a(href='/person/' + person._id + '/view')
               img.img-responsive.thumbnail.smallimage(src=person.photo)
