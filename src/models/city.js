@@ -11,7 +11,7 @@ const citySchema = new Schema({
   amount: Number,
   photo: String,
   country: mongoose.Schema.ObjectId,
-  persons: Array[mongoose.Schema.ObjectId],
+  persons: [{ type: mongoose.Schema.ObjectId, ref: 'Person' }],
   code: String,
 });
 

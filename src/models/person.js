@@ -10,7 +10,7 @@ const personSchema = new Schema({
   photo: String,
   age: Number,
   gender: String,
-  cities: Array[mongoose.Schema.ObjectId],
+  cities: [{ type: mongoose.Schema.ObjectId, ref: 'City' }],
 });
 
 module.exports = mongoose.model('Person', personSchema);
