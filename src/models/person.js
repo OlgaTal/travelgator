@@ -1,52 +1,26 @@
-import City from 'city';
-function Person() {
-  this.name = '';
-  this.age = 0;
-  this.gender = '';
-  this.balance = 0;
-  this.cities = [];
-  this.photo = '';
-}
+/* eslint-disable func-names */
+import mongoose from 'mongoose';
+// import City from 'city';
 
-Person.find = function() {
-  const p1 = new Person();
-  p1._id = '1';
-  p1.name = 'A';
-  p1.photo = 'http://image.shutterstock.com/z/stock-photo-a-portrait-of-a-very-old-man-years-old-near-his-house-55351525.jpg';
-  p1.age = 100;
-  p1.gender = 'Male';
-  p1.balance = 10000;
+const Schema = mongoose.Schema;
 
-  const p2 = new Person();
-  p2._id = '2';
-  p2.name = 'B';
-  p2.photo = 'https://pixabay.com/static/uploads/photo/2015/09/18/11/38/old-woman-945448_960_720.jpg';
-  p2.age = 150;
-  p2.gender = 'Female';
-  p2.balance = 1000;
+const personSchema = new Schema({
+  name: String,
+  balance: Number,
+  photo: String,
+  age: Number,
+  gender: String,
+  cities: [{ type: mongoose.Schema.ObjectId, ref: 'City' }],
+});
 
-  const arr = [];
-  arr.push(p1);
-  arr.push(p2);
+module.exports = mongoose.model('Person', personSchema);
 
-  return arr;
-};
-
-Person.findOne = function(id) {
-  const p1 = new Person();
-  p1._id = '1';
-  p1.name = 'A';
-  p1.photo = 'http://image.shutterstock.com/z/stock-photo-a-portrait-of-a-very-old-man-years-old-near-his-house-55351525.jpg';
-  p1.age = 100;
-  p1.gender = 'Male';
-  p1.balance = 10000;
-
-
-  const arr = [];
-  arr.push('c1');
-  arr.push('c2');
-
-  return p1;
-};
-
-module.exports = Person;
+// Person.purchase = function (city) {
+//   if (this.balance < city.amount) {
+//     return (new Error('Not enough money'));
+//   }
+//   this.cities.push(city.name);
+//   this.balance -= city.amount;
+//   city.persons.push(this);
+//   return 'did thing';
+// };

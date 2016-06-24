@@ -1,10 +1,18 @@
+/* eslint-disable func-names */
+
+import mongoose from 'mongoose';
+// import City from 'city';
 // import Person from 'person';
-function City() {
-  this.name = '';
-  this.country = '';
-  this.people = [];
-  this.balance = 0;
-  this.photos = '';
-  this.amount = 0;
-}
-module.exports = City;
+
+const Schema = mongoose.Schema;
+
+const citySchema = new Schema({
+  name: String,
+  amount: Number,
+  photo: String,
+  country: mongoose.Schema.ObjectId,
+  persons: [{ type: mongoose.Schema.ObjectId, ref: 'Person' }],
+  code: String,
+});
+
+module.exports = mongoose.model('City', citySchema);
