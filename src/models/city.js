@@ -1,20 +1,18 @@
 /* eslint-disable func-names */
 
+import mongoose from 'mongoose';
+import City from 'city';
 import Person from 'person';
 
-function City(name, country, amount, photo) {
-  this.name = name;
-  this.amount = amount;
-  this.photo = photo;
-  this.country = country;
-  this.persons = [];
-  this.code = '';
-}
+const Schema = mongoose.Schema;
 
-City.prototype.editCity = function (name, country, amount, photo, code) {
-  this.name = name;
-  this.amount = amount;
-  this.photo = photo;
-  this.country = country;
-  this.code = code;
-};
+const citySchema = new Schema({
+  name: String,
+  amount: Number,
+  photo: String,
+  country: mongoose.Schema.ObjectId,
+  persons: Array[mongoose.Schema.ObjectId],
+  code: String,
+});
+
+module.exports = mongoose.model('City', citySchema);

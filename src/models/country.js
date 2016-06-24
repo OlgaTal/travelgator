@@ -1,12 +1,11 @@
 /* eslint-disable func-names */
-
+import mongoose from 'mongoose';
 import City from 'city';
+const Schema = mongoose.Schema;
 
-function Country(name) {
-  this.name = name;
-}
+const countrySchema = new Schema({
+  name: String,
+  cities: Array[mongoose.Schema.ObjectId],
+});
 
-Country.prototype.editCountry = function (name, cities) {
-  this.name = name;
-  this.cities = cities;
-};
+module.exports = mongoose.model('Country', countrySchema);
