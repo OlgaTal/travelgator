@@ -1,3 +1,29 @@
 extends ../shared/template
 block content
   h1 Person View
+  .row
+    .col-xs-6
+      div
+        label Name
+        span.indent=person.name
+      div
+        label Gender
+        span.indent=person.gender
+      div
+        label Age
+        span.indent=person.age
+      div
+        label Balance
+        span.indent='$' + person.balance
+
+      div
+        ul
+          each city in person.cities
+            li
+              a(href='/city/' + city.id + '/view')=city.name
+
+    .col-xs-6
+      img.largeimage(src=person.photo)
+      div.buttonRow
+        a.btn.btn-primary(href='/person/' + person.id + '/purchase') Purchase
+        a.btn.btn-primary.secondaryButton(href='/person/' + person.id + '/edit' style='margin-left: 10px;') Edit

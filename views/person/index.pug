@@ -1,19 +1,20 @@
 extends ../shared/template
 block content
   h1 Person List
-  table.table.table-striped
-  tbody
-    each person in personListView
-    tr
-      td
-        a.btn.btn-success.btn-xs(href='/person/' + person.id + '/delete')
-          i.fa.fa-trash.fa-fw
-      td
-        form(action='/person/' + task.id + '/edit', method='post')
-          button.btn.btn-primary.btn-xs(type='submit')
-            i.fa.fa-pencil-square-o.fa-fw
-      td
-        i(src=person.url)
-      td=person.name
-  a.btn.btn-success.btn-xs(href='/person/new')
-    i.fa.fa-user-plus.fa-fw
+    a.btn.btn-success.btn-xs(href='/person/new' style='margin-left: 10px;')
+      i.fa.fa-user-plus.fa-fw.fa-2x
+  table.table.table-striped(style='border: 2px grey solid;')
+    tbody
+      each person in personListView
+        tr(style='border: 2px grey solid;text-align:left;')
+          td(style='width: 130px;')
+            a.btn.btn-success.btn-xs.listbutton(href='/person/' + person._id + '/delete')
+              i.fa.fa-trash.fa-fw.fa-2x
+            form(action='/person/' + person._id + '/edit', method='post')
+              button.btn.btn-primary.btn-xs.listbutton(type='submit')
+                i.fa.fa-pencil-square-o.fa-fw.fa-2x
+          td.smallimage
+            a(href='/person/' + person._id + '/view')
+              img.img-responsive.thumbnail.smallimage(src=person.photo)
+          td
+            a(href='/person/' + person._id + '/view')=person.name

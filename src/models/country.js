@@ -1,4 +1,4 @@
-Function Country () {
+function Country() {
   this.name = '';
   this.cities = [];
 }

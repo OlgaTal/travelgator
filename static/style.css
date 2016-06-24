@@ -1,0 +1,21 @@
+.smallimage{
+  width: 100px;
+}
+.largeimage{
+  width: 100%;
+}
+.listbutton {
+  float: left;
+  margin-top: 25px;
+  margin-left: 10px;
+}
+.secondaryButton {
+  margin-left: 10px;
+}
+.indent {
+  margin-left: 15px;
+}
+.buttonRow {
+  margin-top: 15px;
+  text-align: center;
+}

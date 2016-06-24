@@ -1,3 +1,25 @@
 extends ../shared/template
 block content
   h1 New Person
+  .row
+    .col-xs-6
+      form(action='/person/add', method='post')
+        .form-group
+          label Name
+          input.form-control(type='text', name= 'name')
+        .form-group
+          label Photo
+          input.form-control(type='text', name= 'photo')
+        .form-group
+          label Gender
+          input.form-control(type='text', name= 'gender')
+        .form-group
+          label Age
+          input.form-control(type='text', name= 'age')
+        .form-group
+          label Balance
+          input.form-control(type='text', name= 'balance')
+        .form-group
+          button.btn.btn-primary(type='submit') Save
+          a.btn.btn-default.secondaryButton(href='/person') Cancel
+    .col-xs-6
