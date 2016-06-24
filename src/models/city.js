@@ -1,8 +1,8 @@
 /* eslint-disable func-names */
 
 import mongoose from 'mongoose';
-import City from 'city';
-import Person from 'person';
+// import City from 'city';
+// import Person from 'person';
 
 const Schema = mongoose.Schema;
 
