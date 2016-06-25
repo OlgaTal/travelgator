@@ -1,4 +1,4 @@
-// import Person from './person';
+import CityView from './cityView';
 
 function PersonView(person) {
   this.id = person._id;
@@ -8,6 +8,8 @@ function PersonView(person) {
   this.balance = person.balance;
   this.cities = person.cities;
   this.photo = person.photo;
+
+
 // this.priority = priorities.find(p => p.value === task.priority);
 //   const c1 = new City();
 //   c1.name='Chicago';

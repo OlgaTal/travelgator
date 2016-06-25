@@ -6,3 +6,4 @@ temp/
 static/vendor/
 *.*.bak
 *.bak
+donotcheckthisin.js

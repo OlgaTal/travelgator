@@ -26,16 +26,15 @@ block content
           a.btn.btn-default.secondaryButton(href='/person') Cancel
     .col-xs-6
       h3 Purchased City List
-        a.btn.btn-success.btn-xs(href='/city/new' style='margin-left: 10px;')
+        a.btn.btn-success.btn-xs(href='/person/'+person._id+'/city/add' style='margin-left: 10px;')
           i.fa.fa-plus.fa-fw.fa-2x
-      table.table.table-striped(style='border: 2px grey solid;')
+      table#purchasedCities.table.table-striped(style='border: 2px grey solid;')
         tbody
+          -- 
           each city in person.cities
-            tr(style='border: 2px grey solid;text-align:left;')
+            tr(style='border: 2px grey solid;text-align:left;', id=city._id)
               td(style='width: 130px;')
                 a.btn.btn-success.btn-xs.listbutton(href='/city/' + city._id + '/delete')
                   i.fa.fa-trash.fa-fw.fa-2x
-                a.btn.btn-primary.btn-xs.listbutton(href='/city/' + city._id + '/edit')
-                  i.fa.fa-pencil-square-o.fa-fw.fa-2x
               td
                 a(href='/city/' + city._id + '/view')=city.name

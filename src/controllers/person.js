@@ -35,9 +35,11 @@ router.post('/add', (req, res) => {
   });
 });
 router.get('/:id/edit', (req, res) => {
-  Person.findById(req.params.id, (err, person) => {
-    console.log('view person:', person);
-    // person.cities[0].populate()
-    res.render('person/edit', { person });
-  });
+  Person.findById(req.params.id)
+    .populate('cities')
+    .exec((err, person) => {
+    //   if (err) return handleError(err);
+      console.log(person);
+      res.render('person/edit', { person });
+    });
 });
