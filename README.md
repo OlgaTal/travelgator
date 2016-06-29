@@ -1,1 +1,1 @@
-# template
+# JADE project
